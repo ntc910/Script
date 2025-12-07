@@ -1,0 +1,12 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y \
+    bc bison build-essential bzip2 ccache chrpath cpio cpp dpkg-dev fakeroot file flex g++ gcc git gperf java-common lib32asan6 lib32atomic1 lib32gcc-11-dev lib32gcc-s1 lib32gomp1 lib32itm1 lib32quadmath0 lib32stdc++6 lib32ubsan1 lib32z1 lib32z1-dev libc6-dev libc6-dev-i386 libc6-dev-x32 libc6-i386 libc6-x32 libgcc-11-dev libprotobuf-dev libprotobuf-lite23 libprotobuf23 libprotoc23 libssl-dev libstdc++-11-dev libx32asan6 libx32atomic1 libx32gcc-11-dev libx32gcc-s1 libx32gomp1 libx32itm1 libx32quadmath0 libx32stdc++6 libx32ubsan1 linux-libc-dev lz4 lzop make ninja-build openjdk-11-jdk openjdk-11-jdk-headless openjdk-11-jre openjdk-11-jre-headless p7zip p7zip-full patch protobuf-compiler python2.7 python3 python3-cbor2 python3-chardet python3-dbus python3-dev python3-distro python3-distutils python3-future python3-gi python3-kconfiglib python3-lib2to3 python3-minimal python3-olefile python3-pil python3-pip python3-pkg-resources python3-pycryptodome python3-ruamel.yaml python3-ruamel.yaml.clib python3-setuptools python3-six python3-wheel python3.10 python3.10-dev python3.10-minimal rsync swig swig4.0 unzip uuid-dev xz-utils zip zlib1g-dev zstd \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/python2.7 /usr/bin/python2
+ENV SHELL=/bin/bash
+ENV USER=root
+
+WORKDIR /app

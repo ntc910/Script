@@ -1,0 +1,90 @@
+Public IP Address: 45.124.94.196
+Private IP Address: 100.64.0.3
+Public Interface: eth0
+Private Interface: eth1
+
+Public IP Address: 45.124.94.196
+Private IP Address: 100.64.0.3
+Public Interface: eth0
+Private Interface: tailscale0
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 42.114.171.171:29732
+
+42.114.171.171:29732
+
+
+ztrf25vkth
+
+
+export ZT_IF=ztrf25vkth
+
+export WAN_IF=eth0
+
+sudo iptables -t nat -A POSTROUTING -o $WAN_IF -j MASQUERADE
+
+sudo iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+sudo iptables -A FORWARD -i $ZT_IF -o $WAN_IF -j ACCEPT
+
+sudo apt install netfilter-persistent
+
+sudo netfilter-persistent flush
+
+
+sudo netfilter-persistent save && sudo netfilter-persistent reload
+
+sudo iptables-save
+
+sudo iptables -L -n
+
+#########
+
+sudo iptables -A ts-input -s 100.64.0.0/10 ! -i tailscale0 -j ACCEPT
+sudo iptables -A ts-input -s 100.64.0.0/10 ! -o tailscale0 -j ACCEPT
+
+sudo iptables -A INPUT -p udp -m udp --dport 9001 -j ACCEPT
+
+###########
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 100.64.0.5:9001
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 100.64.0.4:9001
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 100.64.0.3:9001
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.5:9001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.4:9001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.3:9001
+
+
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 172.0.0.5:9001
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 172.0.0.2:9001
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 172.0.0.3:9001
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 172.0.0.5:9001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 172.0.0.2:9001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 172.0.0.3:9001
+
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 10.10.0.6:9001
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 10.10.0.5:9001
+sudo iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 10.10.0.2:9001
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.5:9001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.4:9001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.3:9001
+
+###
+
+iptables -t nat -A PREROUTING -p tcp --dport 9001 -j DNAT --to-destination 100.64.0.3:9001
+iptables -t nat -A POSTROUTING -p tcp -d 100.64.0.3 --dport 9001 -j SNAT --to-source 100.64.0.3
+
+iptables -t nat -A PREROUTING -p udp --dport 9001 -j DNAT --to-destination 100.64.0.3:9001
+iptables -t nat -A POSTROUTING -p udp -d 100.64.0.3 --dport 9001 -j SNAT --to-source 100.64.0.3
+
+
+
+###
+
+export PHY_IFACE=eth0
+export ZT_IFACE=tailscale0
+
+sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
+sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
