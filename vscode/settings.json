@@ -1,0 +1,312 @@
+{
+    "[windows]": {
+        "code-runner.executorMap": {
+            "cpp": "powershell -ExecutionPolicy ByPass -File \"$workspaceRoot\\.vscode\\cpp_run.ps1\" $fileName $dir",
+            "html": "cd $dir && start $fileName",
+            "csharp": "csc",
+            "python": "python3",
+            // "python": "powershell -ExecutionPolicy ByPass -File \"$workspaceRoot\\.vscode\\py_run.ps1\" $fileName $dir",
+            "mk": "",
+            "hpp": "$workspaceRoot/.vscode/cpp_run.sh $fileName $dir",
+        },
+    },
+    "code-runner.executorMap": {
+        "cpp": "powershell -ExecutionPolicy ByPass -File \"$workspaceRoot\\.vscode\\cpp_run.ps1\" $fileName $dir",
+        "html": "cd $dir && start $fileName",
+        "csharp": "csc",
+        "python": "python3",
+        // "python": "powershell -ExecutionPolicy ByPass -File \"$workspaceRoot\\.vscode\\py_run.ps1\" $fileName $dir",
+        "mk": "",
+        // "cpp": "$workspaceRoot/.vscode/cpp_run.sh $fileName $dir",
+    },
+    "code-runner.ignoreSelection": true,
+    "[linux]": {
+        "emmet.triggerExpansionOnTab": false, 
+        "code-runner.executorMap": {
+            "hpp": "$workspaceRoot/.vscode/cpp_run.sh $fileName $dir",
+            "html": "cd $dir && start $fileName",
+            "csharp": "csc",
+            "python": "python3",
+            // "python": "powershell -ExecutionPolicy ByPass -File \"$workspaceRoot\\.vscode\\py_run.ps1\" $fileName $dir",
+            "mk": "",
+        },
+    },
+    "code-runner.executorMapByFileExtension": {
+        ".cpp": {
+            "windows": "powershell -ExecutionPolicy ByPass -File \"$workspaceRoot\\.vscode\\cpp_run.ps1\" $fileName $dir",
+            "linux": "$workspaceRoot/.vscode/cpp_run.sh $fileName $dir",
+        }
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+    },
+    "python.terminal.activateEnvironment": false,
+    "editor.fontFamily": "Google Sans Mono",
+    "terminal.integrated.fontFamily": "Google Sans Mono",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, AllowShortIfStatementsOnASingleLine: AllIfsAndElse, AccessModifierOffset: 0}",
+    "files.exclude": {
+        "**/.git": false,
+    },
+    "fileHeaderComment.parameter": {
+        "*": {
+            "commentbegin": "/*",
+            "commentprefix": " *",
+            "takenote": "EN: clean code | KO: optimized code",
+            "commentend": " */",
+            "author": "NTC910"
+        }
+    },
+    "fileHeaderComment.template": {
+        "*": [
+            "${commentbegin}",
+            "${commentprefix} Created on ${date}",
+            "${commentprefix} Copyright (c) ${author}",
+            "${commentprefix} ${takenote}",
+            "${commentend}"
+        ]
+    },
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "algorithm": "cpp",
+        "xutility": "cpp",
+        "deque": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "cmath": "cpp",
+        "csignal": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "exception": "cpp",
+        "fstream": "cpp",
+        "functional": "cpp",
+        "initializer_list": "cpp",
+        "iomanip": "cpp",
+        "ios": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "iterator": "cpp",
+        "limits": "cpp",
+        "list": "cpp",
+        "locale": "cpp",
+        "map": "cpp",
+        "memory": "cpp",
+        "mutex": "cpp",
+        "new": "cpp",
+        "queue": "cpp",
+        "random": "cpp",
+        "ratio": "cpp",
+        "regex": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
+        "stack": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "string": "cpp",
+        "system_error": "cpp",
+        "thread": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "xfacet": "cpp",
+        "xhash": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xlocbuf": "cpp",
+        "xlocinfo": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xloctime": "cpp",
+        "xmemory": "cpp",
+        "xmemory0": "cpp",
+        "xstddef": "cpp",
+        "xstring": "cpp",
+        "xtr1common": "cpp",
+        "xtree": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "condition_variable": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "string_view": "cpp",
+        "format": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "span": "cpp",
+        "stop_token": "cpp",
+        "text_encoding": "cpp",
+        "cinttypes": "cpp",
+        "variant": "cpp",
+        "shared_mutex": "cpp",
+        "expected": "cpp",
+        "hash_map": "cpp",
+        "any": "cpp",
+        "filesystem": "cpp",
+        "ranges": "cpp",
+        "complex": "cpp",
+        "forward_list": "cpp",
+        "source_location": "cpp",
+        "typeindex": "cpp"
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "rules": {
+            /*"keywords": {
+                "foreground": "#10b1fe",
+                "fontStyle": "italic"
+            },*/
+            "macro": {
+                "foreground": "#b1ee56",
+                "fontStyle": "italic"
+            },
+            "enumMember": "#9f7efe",
+            "variable": "#d4d4d4",
+            "property": "#ce9887",
+            "memberOperatorOverload": "#d4d4d4",
+            "*.local": {
+                "foreground": "#d7d6a5",
+                //"fontStyle": "underline",
+            },
+            "parameter": "#8bcdef"
+        }
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "#858d9e",
+        "functions": "#44d675",
+        "keywords": {
+            //"foreground": "#10b1fe",
+            "fontStyle": "italic"
+        },
+        "numbers": "#ff78f8",
+        "strings": "#f9c859",
+        "types": "#ff6480",
+        "variables": "#d4d4d4",
+        "textMateRules": [
+            /*{
+                "scope": "storage.modifier",
+                "settings": {
+                    "foreground": "#10b1fe",
+                    "fontStyle": "italic"
+                }
+            },*/
+            {
+                "scope": "keyword.operator.arithmetic",
+                "settings": {
+                    "foreground": "#d4d4d4",
+                }
+            },
+            {
+                "scope": "keyword.control.directive",
+                "settings": {
+                    "foreground": "#49f8c7",
+                    "fontStyle": "italic"
+                }
+            },
+            /*{
+                "scope": "keyword.other",
+                "settings": {
+                    "foreground": "#10b1fe",
+                    "fontStyle": "italic"
+                },
+            },*/
+            {
+                "scope": "entity.name.function.preprocessor",
+                "settings": {
+                    "foreground": "#b1ee56",
+                    "fontStyle": "italic"
+                },
+            },
+            {
+                "scope": [
+                    "constant.other.placeholder",
+                    "constant.language"
+                ],
+                "settings": {
+                    "foreground": "#9f7efe",
+                    "fontStyle": "italic"
+                },
+            },
+            {
+                "scope": "constant.character.escape",
+                "settings": {
+                    "foreground": "#ff936a",
+                    "fontStyle": "italic"
+                },
+            },
+            {
+                "scope": "keyword.other.unit",
+                "settings": {
+                    "foreground": "#f9c859",
+                    "fontStyle": "italic"
+                },
+            },
+            {
+                "scope": "constant.numeric.hexadecimal",
+                "settings": {
+                    "fontStyle": "italic"
+                },
+            },
+        ],
+    },
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#92f535",
+        "editorBracketHighlight.foreground2": "#28e4eb",
+        "editorBracketHighlight.foreground3": "#ffa023",
+        "editorBracketHighlight.foreground4": "#00ff95",
+        "editorBracketHighlight.foreground5": "#ff78ff",
+        "editorBracketHighlight.foreground6": "#ffffff"
+    },
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.wordWrap": "on",
+    "code-runner.runInTerminal": true,
+    "code-runner.showExecutionMessage": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "[html]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "cmake.ignoreCMakeListsMissing": true,
+    "java.debug.settings.onBuildFailureProceed": true,
+    // "python.languageServer": "None",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    }
+}
