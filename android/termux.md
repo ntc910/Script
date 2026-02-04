@@ -14,7 +14,8 @@ socat TCP-LISTEN:3389,fork TCP:107.98.32.245:3389
 2222 termux ssh port
 3333 http proxy server port
 5555 adb server port
-8888 termux file server
+8888 sock5 server
+8080 termux file server
 9999 
 
 ## Connect command
