@@ -158,31 +158,9 @@ config redirect
 
 config redirect
 	option target 'DNAT'
-	option name 'http'
-	option src 'lan'
-	option dest 'wan'
-	option dest_ip '192.168.1.11'
-	list proto 'tcp'
-	list proto 'udp'
-	option src_dport '3333'
-	option dest_port '3333'
-
-config redirect
-	option target 'DNAT'
 	option name 'adb'
 	option src 'wan'
 	option dest 'lan'
-	option dest_ip '192.168.1.11'
-	list proto 'tcp'
-	list proto 'udp'
-	option src_dport '5555'
-	option dest_port '5555'
-
-config redirect
-	option target 'DNAT'
-	option name 'adb'
-	option src 'lan'
-	option dest 'wan'
 	option dest_ip '192.168.1.11'
 	list proto 'tcp'
 	list proto 'udp'
@@ -202,12 +180,12 @@ config redirect
 
 config redirect
 	option target 'DNAT'
-	option name 'ssh'
-	option src 'lan'
-	option dest 'wan'
-	option dest_ip '192.168.1.11'
+	option name 'vancanh'\''s tablet'
+	option src 'wan'
+	option dest 'lan'
+	option dest_ip '192.168.1.55'
 	list proto 'tcp'
 	list proto 'udp'
-	option src_dport '2222'
-	option dest_port '2222'
+	option src_dport '12345'
+	option dest_port '12345'
 
