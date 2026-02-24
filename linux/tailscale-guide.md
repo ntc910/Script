@@ -26,3 +26,14 @@ cat /etc/hosts
 #
 sudo iptables -t nat -A PREROUTING -p udp --dport 9000 -j DNAT --to-destination 100.99.1.1:9000
 sudo iptables -t nat -A PREROUTING -p tcp --dport 9000 -j DNAT --to-destination 100.99.1.1:9000
+
+
+# Add proxy to tailscale
+sudo vim /etc/default/tailscaled
+
+HTTPS_PROXY="http://107.98.150.183:3333"
+HTTP_PROXY="http://107.98.150.183:3333"
+
+Then restart
+
+sudo systemctl restart tailscaled
